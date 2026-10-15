@@ -244,30 +244,24 @@ function Executor() {
     }
 
     async function handleCreateItem() {
+        // Open the form immediately. The previous flow waited for the
+        // backend to create an Executor day first, so in the hosted demo
+        // (where the API may be unavailable) the button appeared broken.
+        setError("");
+        setEditingItem(null);
+        setModalOpen(true);
+
+        // Prepare the day in the background for normal API-backed use.
+        // A failed request must not prevent the user from opening the form.
         try {
-            setError("");
-
-            const existingDay =
-                await ensureDayExists();
-
+            const existingDay = await ensureDayExists();
             if (!existingDay?.id) {
-                throw new Error(
-                    "Unable to create the Executor day."
+                console.warn(
+                    "Executor day is not available yet; the item form remains open."
                 );
             }
-
-            setEditingItem(null);
-            setModalOpen(true);
         } catch (err) {
-            console.error(
-                "Unable to prepare item creation:",
-                err
-            );
-
-            setError(
-                err.message ||
-                    "Unable to create item."
-            );
+            console.error("Unable to prepare Executor day:", err);
         }
     }
 

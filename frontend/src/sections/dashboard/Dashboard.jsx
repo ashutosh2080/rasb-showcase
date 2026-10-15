@@ -744,7 +744,7 @@ export default function Dashboard() {
           </Card>
         )}
 
-        {/* ACTIVITY LOG */}
+        {/* ACTIVITY LOG 
         {widgets.activityLog && (
           <Card
             id="activity-log"
@@ -768,8 +768,9 @@ export default function Dashboard() {
             </div>
           </Card>
         )}
+          */}
 
-        {/* STORAGE */}
+        {/* STORAGE
         {widgets.storage && (
           <Card
             id="storage"
@@ -800,8 +801,9 @@ export default function Dashboard() {
             </div>
           </Card>
         )}
+           */}
 
-        {/* SECURITY VAULT */}
+        {/* SECURITY VAULT 
         {widgets.vault && (
           <Card
             id="vault"
@@ -833,7 +835,9 @@ export default function Dashboard() {
             </div>
           </Card>
         )}
+          */}
       </div>
+
 
       <div className="dashboard-footer-note">
         <span>RASB</span><i />
