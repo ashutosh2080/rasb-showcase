@@ -1,0 +1,2135 @@
+/* =========================================================
+   RASB — CYCLES
+   Light + Dark Theme
+   ========================================================= */
+
+
+/* =========================================================
+   THEME VARIABLES
+   ========================================================= */
+
+.cycles-page {
+  /* ---------- LIGHT MODE ---------- */
+
+  --cycles-bg: #f5f1e8;
+  --cycles-surface: #faf8f3;
+  --cycles-surface-2: #f2ede4;
+  --cycles-surface-hover: #eee7dc;
+
+  --cycles-text: #2c2722;
+  --cycles-text-secondary: #746b61;
+  --cycles-text-muted: #8b8176;
+
+  --cycles-border: #d8d0c4;
+  --cycles-border-strong: #c9c0b3;
+
+  --cycles-accent: #a9573d;
+  --cycles-accent-hover: #934a34;
+  --cycles-accent-soft: rgba(169, 87, 61, 0.09);
+
+  --cycles-success: #70876c;
+  --cycles-success-soft: rgba(112, 135, 108, 0.12);
+
+  --cycles-warning: #b48c4b;
+  --cycles-warning-soft: rgba(180, 140, 75, 0.12);
+
+  --cycles-danger: #a9574c;
+  --cycles-danger-soft: rgba(169, 87, 76, 0.12);
+
+  --cycles-shadow: rgba(44, 39, 34, 0.08);
+
+  --cycles-overlay: rgba(30, 26, 22, 0.42);
+
+  --cycles-input-bg: #faf8f3;
+  --cycles-button-text: #fffaf3;
+
+  min-height: 100%;
+  padding: 32px;
+
+  background: var(--cycles-bg);
+  color: var(--cycles-text);
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+
+/* =========================================================
+   DARK MODE
+   Supports:
+   .dark
+   body.dark
+   [data-theme="dark"]
+   .cycles-page[data-theme="dark"]
+   ========================================================= */
+
+.dark .cycles-page,
+body.dark .cycles-page,
+[data-theme="dark"] .cycles-page,
+.cycles-page[data-theme="dark"] {
+  --cycles-bg: #171512;
+  --cycles-surface: #201d19;
+  --cycles-surface-2: #25211d;
+  --cycles-surface-hover: #2b2722;
+
+  --cycles-text: #eee7dc;
+  --cycles-text-secondary: #c1b8ad;
+  --cycles-text-muted: #938a80;
+
+  --cycles-border: #3a342e;
+  --cycles-border-strong: #494139;
+
+  --cycles-accent: #c06b4d;
+  --cycles-accent-hover: #d07a59;
+  --cycles-accent-soft: rgba(192, 107, 77, 0.14);
+
+  --cycles-success: #8da485;
+  --cycles-success-soft: rgba(141, 164, 133, 0.14);
+
+  --cycles-warning: #c4a062;
+  --cycles-warning-soft: rgba(196, 160, 98, 0.14);
+
+  --cycles-danger: #c87569;
+  --cycles-danger-soft: rgba(200, 117, 105, 0.14);
+
+  --cycles-shadow: rgba(0, 0, 0, 0.3);
+
+  --cycles-overlay: rgba(0, 0, 0, 0.68);
+
+  --cycles-input-bg: #1b1815;
+  --cycles-button-text: #fff8ef;
+}
+
+
+/* =========================================================
+   GLOBAL CYCLES TRANSITION
+   ========================================================= */
+
+.cycles-page *,
+.cycles-page *::before,
+.cycles-page *::after {
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.cycles-page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+
+  margin-bottom: 28px;
+}
+
+.cycles-page-header h1 {
+  margin: 3px 0 4px;
+
+  color: var(--cycles-text);
+
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.cycles-page-header p {
+  margin: 0;
+
+  color: var(--cycles-text-secondary);
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.section-eyebrow {
+  display: block;
+
+  color: var(--cycles-text-muted);
+
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+   ========================================================= */
+
+.cycles-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.cycles-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  height: 42px;
+  padding: 0 13px;
+
+  border: 1px solid var(--cycles-border);
+  background: var(--cycles-surface);
+
+  border-radius: 6px;
+}
+
+.cycles-search > span {
+  color: var(--cycles-text-muted);
+}
+
+.cycles-search input {
+  width: 190px;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+  color: var(--cycles-text);
+
+  font: inherit;
+}
+
+.cycles-search input::placeholder {
+  color: var(--cycles-text-muted);
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.button-primary,
+.button-secondary,
+.button-danger,
+.button-small {
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font: inherit;
+
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+
+/* ---------- Primary ---------- */
+
+.button-primary {
+  height: 42px;
+  padding: 0 16px;
+
+  border: 1px solid var(--cycles-accent);
+
+  background: var(--cycles-accent);
+  color: var(--cycles-button-text);
+}
+
+.button-primary:hover {
+  background: var(--cycles-accent-hover);
+  border-color: var(--cycles-accent-hover);
+
+  transform: translateY(-1px);
+}
+
+.button-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* ---------- Secondary ---------- */
+
+.button-secondary {
+  padding: 9px 13px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: transparent;
+  color: var(--cycles-text);
+}
+
+.button-secondary:hover {
+  background: var(--cycles-surface-hover);
+  border-color: var(--cycles-border-strong);
+}
+
+
+/* ---------- Danger ---------- */
+
+.button-danger {
+  padding: 9px 13px;
+
+  border: 1px solid var(--cycles-danger);
+
+  background: transparent;
+  color: var(--cycles-danger);
+}
+
+.button-danger:hover {
+  background: var(--cycles-danger-soft);
+}
+
+
+/* ---------- Small ---------- */
+
+.button-small {
+  padding: 7px 10px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: transparent;
+  color: var(--cycles-text);
+
+  font-size: 12px;
+}
+
+.button-small:hover {
+  background: var(--cycles-surface-hover);
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.cycles-main {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   UPPER LAYOUT
+   ========================================================= */
+
+.cycles-upper-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    310px;
+
+  gap: 20px;
+}
+
+
+/* =========================================================
+   SHARED SURFACES
+   ========================================================= */
+
+.cycles-calendar-wrapper,
+.cycles-sidebar,
+.selected-date-panel,
+.cycle-occurrence-section {
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+
+  transition:
+    background-color 250ms ease,
+    border-color 250ms ease,
+    color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+
+/* =========================================================
+   CALENDAR
+   ========================================================= */
+
+.cycles-calendar-panel {
+  padding: 22px;
+
+  background: var(--cycles-surface);
+}
+
+
+/* ---------- Calendar header ---------- */
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.calendar-navigation {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.calendar-navigation h2 {
+  min-width: 190px;
+  margin: 0;
+
+  color: var(--cycles-text);
+
+  text-align: center;
+
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+
+/* ---------- Month buttons ---------- */
+
+.calendar-nav-button {
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+  color: var(--cycles-text);
+
+  cursor: pointer;
+
+  font-size: 20px;
+}
+
+.calendar-nav-button:hover {
+  background: var(--cycles-surface-hover);
+  border-color: var(--cycles-border-strong);
+}
+
+
+/* ---------- Today ---------- */
+
+.calendar-today-button {
+  padding: 7px 11px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+  color: var(--cycles-text);
+
+  cursor: pointer;
+
+  border-radius: 4px;
+}
+
+.calendar-today-button:hover {
+  background: var(--cycles-surface-hover);
+}
+
+
+/* ---------- Weekdays ---------- */
+
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, 1fr);
+}
+
+.calendar-weekday {
+  padding: 7px;
+
+  color: var(--cycles-text-muted);
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.1em;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+}
+
+
+/* =========================================================
+   CALENDAR CELLS
+   ========================================================= */
+
+.calendar-cell {
+  position: relative;
+
+  min-height: 74px;
+  padding: 9px;
+
+  border: 0;
+
+  border-top: 1px solid var(--cycles-border);
+  border-right: 1px solid var(--cycles-border);
+
+  background: transparent;
+  color: var(--cycles-text);
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.calendar-cell:nth-child(7n) {
+  border-right: 0;
+}
+
+.calendar-cell:hover {
+  background: var(--cycles-accent-soft);
+}
+
+.calendar-cell-empty {
+  cursor: default;
+}
+
+.calendar-cell-empty:hover {
+  background: transparent;
+}
+
+
+/* ---------- Date ---------- */
+
+.calendar-date-number {
+  color: var(--cycles-text);
+
+  font-size: 13px;
+}
+
+
+/* ---------- Today ---------- */
+
+.calendar-cell.is-today
+  .calendar-date-number {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  background: var(--cycles-text);
+  color: var(--cycles-bg);
+}
+
+
+/* ---------- Selected ---------- */
+
+.calendar-cell.is-selected {
+  background: var(--cycles-accent-soft);
+
+  box-shadow:
+    inset 0 0 0 1px
+    var(--cycles-accent);
+}
+
+
+/* =========================================================
+   CALENDAR OCCURRENCE MARKERS
+   ========================================================= */
+
+.calendar-occurrence-markers {
+  position: absolute;
+
+  left: 9px;
+  bottom: 9px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+}
+
+.calendar-occurrence-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--cycles-text-muted);
+}
+
+
+/* ---------- Priority ---------- */
+
+.calendar-occurrence-dot.priority-very_high,
+.calendar-occurrence-dot.priority-high {
+  background: var(--cycles-accent);
+}
+
+.calendar-occurrence-dot.priority-medium {
+  background: var(--cycles-warning);
+}
+
+.calendar-occurrence-dot.priority-low {
+  background: var(--cycles-text-muted);
+}
+
+
+/* ---------- Status ---------- */
+
+.calendar-occurrence-dot.status-completed {
+  background: var(--cycles-success);
+}
+
+.calendar-occurrence-dot.status-missed {
+  background: var(--cycles-danger);
+}
+
+.calendar-occurrence-dot.status-snoozed {
+  background: var(--cycles-warning);
+}
+
+.calendar-more-count {
+  color: var(--cycles-text-muted);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   SELECTED DATE
+   ========================================================= */
+
+.selected-date-panel {
+  border-top: 0;
+
+  padding: 18px 22px;
+
+  background: var(--cycles-surface);
+}
+
+.selected-date-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.selected-date-header h3 {
+  margin: 5px 0 0;
+
+  color: var(--cycles-text);
+
+  font-size: 18px;
+}
+
+.selected-date-header > span {
+  color: var(--cycles-text-secondary);
+}
+
+.selected-date-occurrences {
+  display: grid;
+
+  gap: 7px;
+
+  margin-top: 14px;
+}
+
+.selected-date-occurrences button {
+  display: grid;
+
+  grid-template-columns:
+    65px
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 10px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: transparent;
+  color: var(--cycles-text);
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.selected-date-occurrences button:hover {
+  background: var(--cycles-surface-hover);
+}
+
+.selected-date-occurrences button span {
+  color: var(--cycles-text-muted);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 11px;
+}
+
+.selected-date-occurrences button strong {
+  color: var(--cycles-text);
+}
+
+.selected-date-occurrences button small {
+  color: var(--cycles-text-muted);
+}
+
+.selected-date-empty {
+  margin-top: 14px;
+
+  color: var(--cycles-text-muted);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.cycles-sidebar {
+  padding: 18px;
+
+  overflow: hidden;
+
+  background: var(--cycles-surface);
+}
+
+.cycles-sidebar-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+
+  color: var(--cycles-text);
+
+  font-size: 11px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+}
+
+.cycles-sidebar-count {
+  color: var(--cycles-text-muted);
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.cycle-category {
+  border-top: 1px solid var(--cycles-border);
+}
+
+.cycle-category-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 12px 2px;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--cycles-text);
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+.cycle-category-header:hover {
+  color: var(--cycles-accent);
+}
+
+.cycle-category-items {
+  display: grid;
+
+  gap: 3px;
+
+  padding-bottom: 9px;
+}
+
+
+/* =========================================================
+   SIDEBAR CYCLE
+   ========================================================= */
+
+.cycle-sidebar-item {
+  padding: 10px;
+
+  border: 1px solid transparent;
+
+  background: transparent;
+  color: var(--cycles-text);
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.cycle-sidebar-item:hover,
+.cycle-sidebar-item.is-active {
+  border-color: var(--cycles-border);
+
+  background: var(--cycles-accent-soft);
+}
+
+.cycle-sidebar-item-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.cycle-sidebar-name {
+  color: var(--cycles-text);
+
+  font-size: 13px;
+}
+
+.cycle-sidebar-meta {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 5px;
+
+  margin-top: 5px;
+
+  color: var(--cycles-text-muted);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   PRIORITY INDICATORS
+   ========================================================= */
+
+.priority-indicator {
+  flex: 0 0 auto;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--cycles-text-muted);
+}
+
+.priority-low {
+  background: var(--cycles-text-muted);
+}
+
+.priority-medium {
+  background: var(--cycles-warning);
+}
+
+.priority-high,
+.priority-very_high {
+  background: var(--cycles-accent);
+}
+
+
+/* =========================================================
+   FILTERS
+   ========================================================= */
+
+.cycles-filters {
+  margin-top: 20px;
+
+  padding: 12px 0;
+}
+
+.cycle-filter-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.cycle-filter-group {
+  display: flex;
+
+  gap: 5px;
+}
+
+.cycle-filter-group button {
+  padding: 8px 11px;
+
+  border: 1px solid transparent;
+
+  background: transparent;
+  color: var(--cycles-text-muted);
+
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+.cycle-filter-group button:hover {
+  color: var(--cycles-text);
+}
+
+.cycle-filter-group button.is-active {
+  border-color: var(--cycles-border);
+
+  background: var(--cycles-surface);
+
+  color: var(--cycles-text);
+}
+
+
+/* =========================================================
+   FILTER SELECTS
+   ========================================================= */
+
+.cycle-filter-group select {
+  padding: 8px 10px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+  color: var(--cycles-text);
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+.cycle-filter-group select:focus {
+  border-color: var(--cycles-accent);
+}
+
+
+/* =========================================================
+   CUSTOM DATE RANGE
+   ========================================================= */
+
+.custom-date-range {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 10px;
+}
+
+.custom-date-range label {
+  display: grid;
+
+  gap: 4px;
+
+  color: var(--cycles-text-secondary);
+
+  font-size: 11px;
+}
+
+.custom-date-range input {
+  padding: 8px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-input-bg);
+  color: var(--cycles-text);
+
+  outline: none;
+}
+
+
+/* =========================================================
+   OCCURRENCES
+   ========================================================= */
+
+.cycle-occurrence-section {
+  padding: 22px;
+
+  background: var(--cycles-surface);
+}
+
+.cycle-occurrence-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.cycle-occurrence-header h2 {
+  margin: 5px 0 0;
+
+  color: var(--cycles-text);
+
+  font-size: 19px;
+}
+
+.cycle-empty-occurrences {
+  padding: 25px 0;
+
+  color: var(--cycles-text-muted);
+}
+
+
+/* =========================================================
+   OCCURRENCE DATE GROUP
+   ========================================================= */
+
+.occurrence-date-group {
+  margin-bottom: 24px;
+}
+
+.occurrence-date-heading {
+  display: flex;
+
+  gap: 8px;
+
+  align-items: baseline;
+
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid var(--cycles-border);
+
+  color: var(--cycles-text-muted);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 10px;
+}
+
+.occurrence-date-heading strong {
+  color: var(--cycles-text);
+}
+
+
+/* =========================================================
+   OCCURRENCE ROW
+   ========================================================= */
+
+.occurrence-row {
+  display: flex;
+
+  align-items: stretch;
+
+  border-bottom: 1px solid var(--cycles-border);
+}
+
+.occurrence-main {
+  display: grid;
+
+  grid-template-columns:
+    65px
+    1fr;
+
+  flex: 1;
+
+  gap: 12px;
+
+  padding: 14px 0;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--cycles-text);
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.occurrence-main:hover {
+  color: var(--cycles-accent);
+}
+
+.occurrence-time {
+  color: var(--cycles-text-muted);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 11px;
+}
+
+.occurrence-content {
+  display: grid;
+
+  gap: 4px;
+}
+
+.occurrence-content strong {
+  color: var(--cycles-text);
+}
+
+.occurrence-meta,
+.occurrence-notification {
+  color: var(--cycles-text-muted);
+
+  font-size: 10px;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+}
+
+.occurrence-notification {
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   OCCURRENCE ACTIONS
+   ========================================================= */
+
+.occurrence-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 4px;
+}
+
+.occurrence-actions button {
+  width: 29px;
+  height: 29px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+  color: var(--cycles-text);
+
+  cursor: pointer;
+}
+
+.occurrence-actions button:hover {
+  background: var(--cycles-surface-hover);
+  border-color: var(--cycles-border-strong);
+}
+
+
+/* =========================================================
+   OVERLAYS
+   ========================================================= */
+
+.cycle-form-overlay,
+.cycle-details-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  display: flex;
+
+  background: var(--cycles-overlay);
+
+  transition:
+    background-color 250ms ease;
+}
+
+
+/* =========================================================
+   FORM OVERLAY
+   ========================================================= */
+
+.cycle-form-overlay {
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 25px;
+}
+
+
+/* =========================================================
+   FORM MODAL
+   ========================================================= */
+
+.cycle-form-modal {
+  width: min(900px, 100%);
+
+  max-height: calc(100vh - 50px);
+
+  overflow: auto;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+
+  color: var(--cycles-text);
+
+  box-shadow:
+    0 20px 60px var(--cycles-shadow);
+}
+
+
+/* =========================================================
+   FORM HEADER
+   ========================================================= */
+
+.cycle-form-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 22px;
+
+  border-bottom: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+}
+
+.cycle-form-header h2 {
+  margin: 6px 0 0;
+
+  color: var(--cycles-text);
+
+  font-size: 20px;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+.details-close {
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+  color: var(--cycles-text);
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+.details-close:hover {
+  background: var(--cycles-surface-hover);
+  border-color: var(--cycles-border-strong);
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.cycle-form {
+  padding: 22px;
+
+  background: var(--cycles-surface);
+}
+
+
+/* =========================================================
+   FORM SECTION
+   ========================================================= */
+
+.form-section {
+  padding: 22px 0;
+
+  border-bottom: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+}
+
+.form-section:first-child {
+  padding-top: 0;
+}
+
+.form-section-heading {
+  margin-bottom: 16px;
+}
+
+.form-section-heading h3 {
+  margin: 0 0 5px;
+
+  color: var(--cycles-text);
+
+  font-size: 15px;
+}
+
+.form-section-heading p {
+  margin: 0;
+
+  color: var(--cycles-text-muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 14px;
+}
+
+.form-field {
+  display: grid;
+
+  gap: 6px;
+
+  color: var(--cycles-text);
+
+  font-size: 11px;
+}
+
+.form-field-full {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   FORM INPUTS
+   ========================================================= */
+
+.form-field input,
+.form-field textarea,
+.form-field select,
+.form-section > input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 10px 11px;
+
+  border: 1px solid var(--cycles-border);
+
+  outline: none;
+
+  background: var(--cycles-input-bg);
+  color: var(--cycles-text);
+
+  border-radius: 3px;
+
+  font: inherit;
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--cycles-text-muted);
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus,
+.form-section > input:focus {
+  border-color: var(--cycles-accent);
+
+  box-shadow:
+    0 0 0 2px var(--cycles-accent-soft);
+}
+
+
+/* =========================================================
+   NATIVE FORM CONTROLS
+   ========================================================= */
+
+.cycles-page input,
+.cycles-page select,
+.cycles-page textarea,
+.cycles-page button {
+  color-scheme: light;
+}
+
+.dark .cycles-page input,
+.dark .cycles-page select,
+.dark .cycles-page textarea,
+.dark .cycles-page button,
+body.dark .cycles-page input,
+body.dark .cycles-page select,
+body.dark .cycles-page textarea,
+body.dark .cycles-page button,
+[data-theme="dark"] .cycles-page input,
+[data-theme="dark"] .cycles-page select,
+[data-theme="dark"] .cycles-page textarea,
+[data-theme="dark"] .cycles-page button,
+.cycles-page[data-theme="dark"] input,
+.cycles-page[data-theme="dark"] select,
+.cycles-page[data-theme="dark"] textarea,
+.cycles-page[data-theme="dark"] button {
+  color-scheme: dark;
+}
+
+
+/* =========================================================
+   INLINE OPTIONS
+   ========================================================= */
+
+.form-inline-options {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  margin-bottom: 15px;
+}
+
+.form-inline-options label,
+.message-mode label,
+.recipient-list label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--cycles-text);
+
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   RECURRENCE
+   ========================================================= */
+
+.recurrence-builder {
+  display: grid;
+
+  gap: 15px;
+
+  margin-top: 15px;
+}
+
+
+/* =========================================================
+   WEEKDAY SELECTOR
+   ========================================================= */
+
+.weekday-selector,
+.channel-selector {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+}
+
+.weekday-selector label,
+.channel-selector label {
+  padding: 8px 10px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+
+  color: var(--cycles-text);
+
+  cursor: pointer;
+
+  font-size: 11px;
+}
+
+.weekday-selector label:hover,
+.channel-selector label:hover {
+  background: var(--cycles-surface-hover);
+}
+
+.weekday-selector label.selected,
+.channel-selector label.selected {
+  border-color: var(--cycles-accent);
+
+  background: var(--cycles-accent-soft);
+
+  color: var(--cycles-text);
+}
+
+.weekday-selector input,
+.channel-selector input {
+  display: none;
+}
+
+
+/* =========================================================
+   EXCEPTIONS
+   ========================================================= */
+
+.exception-fields {
+  display: grid;
+
+  gap: 7px;
+}
+
+.exception-fields details {
+  padding-top: 10px;
+
+  border-top: 1px solid var(--cycles-border);
+}
+
+.exception-fields summary {
+  color: var(--cycles-text);
+
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+.exception-day-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 7px;
+
+  margin: 12px 0;
+}
+
+.exception-day-list label {
+  color: var(--cycles-text-secondary);
+
+  font-size: 12px;
+}
+
+.exception-items {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+
+  margin-top: 10px;
+}
+
+.exception-items span {
+  padding: 5px 8px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface-2);
+
+  color: var(--cycles-text-secondary);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   TOGGLE
+   ========================================================= */
+
+.form-heading-toggle {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.toggle {
+  position: relative;
+
+  width: 40px;
+  height: 23px;
+
+  padding: 2px;
+
+  border: 0;
+
+  background: var(--cycles-border-strong);
+
+  border-radius: 20px;
+
+  cursor: pointer;
+}
+
+.toggle span {
+  display: block;
+
+  width: 19px;
+  height: 19px;
+
+  background: var(--cycles-surface);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 1px 4px var(--cycles-shadow);
+
+  transition:
+    transform 180ms ease;
+}
+
+.toggle.is-on {
+  background: var(--cycles-accent);
+}
+
+.toggle.is-on span {
+  transform: translateX(17px);
+}
+
+
+/* =========================================================
+   RECIPIENTS
+   ========================================================= */
+
+.recipient-list {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+
+/* =========================================================
+   NOTIFICATION EDITOR
+   ========================================================= */
+
+.notification-editor {
+  display: grid;
+
+  gap: 8px;
+}
+
+.notification-editor-row {
+  display: grid;
+
+  grid-template-columns:
+    75px
+    120px
+    1fr
+    30px;
+
+  gap: 7px;
+
+  align-items: center;
+}
+
+.notification-editor-row input,
+.notification-editor-row select {
+  padding: 8px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-input-bg);
+  color: var(--cycles-text);
+
+  outline: none;
+
+  font: inherit;
+}
+
+.notification-editor-row input:focus,
+.notification-editor-row select:focus {
+  border-color: var(--cycles-accent);
+}
+
+.notification-editor-row span {
+  color: var(--cycles-text-secondary);
+
+  font-size: 12px;
+}
+
+.notification-editor-row button {
+  width: 28px;
+  height: 28px;
+
+  border: 0;
+
+  background: transparent;
+  color: var(--cycles-text);
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+.notification-editor-row button:hover {
+  color: var(--cycles-danger);
+}
+
+
+/* =========================================================
+   MESSAGE MODE
+   ========================================================= */
+
+.message-mode {
+  display: flex;
+
+  gap: 15px;
+
+  margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   FORM FOOTER
+   ========================================================= */
+
+.cycle-form-footer {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  padding-top: 22px;
+}
+
+
+/* =========================================================
+   DETAILS PANEL
+   ========================================================= */
+
+.cycle-details-overlay {
+  justify-content: flex-end;
+
+  padding: 0;
+}
+
+.cycle-details-panel {
+  width: min(430px, 100%);
+
+  height: 100%;
+
+  overflow: auto;
+
+  border-left: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+
+  color: var(--cycles-text);
+
+  box-shadow:
+    -10px 0 40px var(--cycles-shadow);
+}
+
+
+/* =========================================================
+   DETAILS HEADER
+   ========================================================= */
+
+.cycle-details-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 25px;
+
+  border-bottom: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+}
+
+.cycle-details-header h2 {
+  margin: 6px 0 0;
+
+  color: var(--cycles-text);
+
+  font-size: 23px;
+}
+
+
+/* =========================================================
+   DETAILS BODY
+   ========================================================= */
+
+.cycle-details-body {
+  padding: 25px;
+
+  background: var(--cycles-surface);
+}
+
+.cycle-detail-priority {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+
+  color: var(--cycles-text-secondary);
+
+  font-size: 12px;
+}
+
+.priority-badge {
+  padding: 5px 8px;
+
+  border: 1px solid var(--cycles-border);
+
+  color: var(--cycles-text);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+}
+
+.cycle-description {
+  color: var(--cycles-text-secondary);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   DETAIL SECTIONS
+   ========================================================= */
+
+.detail-section {
+  display: grid;
+
+  gap: 5px;
+
+  padding: 17px 0;
+
+  border-top: 1px solid var(--cycles-border);
+
+  color: var(--cycles-text);
+
+  font-size: 12px;
+}
+
+.detail-label {
+  color: var(--cycles-text-muted);
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   NOTIFICATION / CHANNEL LIST
+   ========================================================= */
+
+.notification-detail-list,
+.channel-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 5px;
+}
+
+.notification-detail-list span,
+.channel-list span {
+  padding: 6px 8px;
+
+  border: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface-2);
+
+  color: var(--cycles-text-secondary);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+.cycle-history {
+  display: grid;
+}
+
+.history-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 7px 0;
+
+  border-bottom: 1px solid var(--cycles-border);
+
+  color: var(--cycles-text-secondary);
+}
+
+.history-status {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+}
+
+.history-status.status-completed {
+  color: var(--cycles-success);
+}
+
+.history-status.status-missed {
+  color: var(--cycles-danger);
+}
+
+.history-status.status-snoozed {
+  color: var(--cycles-warning);
+}
+
+
+/* =========================================================
+   DETAILS FOOTER
+   ========================================================= */
+
+.cycle-details-footer {
+  display: flex;
+
+  gap: 7px;
+
+  padding: 20px 25px;
+
+  border-top: 1px solid var(--cycles-border);
+
+  background: var(--cycles-surface);
+}
+
+
+/* =========================================================
+   ERROR STATE
+   ========================================================= */
+
+.cycles-error {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 12px 15px;
+
+  margin-bottom: 15px;
+
+  border: 1px solid var(--cycles-danger);
+
+  background: var(--cycles-danger-soft);
+
+  color: var(--cycles-danger);
+
+  font-size: 12px;
+}
+
+.cycles-error button {
+  border: 0;
+
+  background: transparent;
+
+  color: var(--cycles-danger);
+
+  cursor: pointer;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   LOADING / SKELETON
+   ========================================================= */
+
+.cycles-loading {
+  opacity: 0.7;
+}
+
+.cycles-skeleton-header {
+  width: 50%;
+
+  height: 70px;
+
+  margin-bottom: 30px;
+
+  background: var(--cycles-surface);
+}
+
+.cycles-skeleton-layout {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    310px;
+
+  gap: 20px;
+}
+
+.cycles-skeleton-calendar,
+.cycles-skeleton-sidebar,
+.cycles-skeleton-list {
+  background: var(--cycles-surface);
+
+  border: 1px solid var(--cycles-border);
+}
+
+.cycles-skeleton-calendar,
+.cycles-skeleton-sidebar {
+  min-height: 400px;
+}
+
+.cycles-skeleton-list {
+  min-height: 250px;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .cycles-upper-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cycles-sidebar {
+    order: 2;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .cycles-page {
+    padding: 18px;
+  }
+
+  .cycles-page-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .cycles-header-actions {
+    width: 100%;
+  }
+
+  .cycles-search {
+    flex: 1;
+  }
+
+  .cycles-search input {
+    width: 100%;
+  }
+
+  .cycle-filter-row {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .cycle-filter-group {
+    overflow-x: auto;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field-full {
+    grid-column: auto;
+  }
+
+  .notification-editor-row {
+    grid-template-columns:
+      1fr
+      1fr;
+  }
+
+  .cycle-details-panel {
+    width: 100%;
+  }
+}

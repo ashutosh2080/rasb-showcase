@@ -1,0 +1,319 @@
+/* =========================================================
+   RASB — Reminder Editor
+   New Reminder + Edit Reminder
+   Warm editorial / premium system
+   ========================================================= */
+
+.reminder-editor-page {
+  min-height: calc(100vh - 80px);
+  padding: 6px 0 34px;
+  color: var(--text);
+}
+
+.reminder-editor-page .reminder-editor {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Header ---------- */
+
+.reminder-editor-page .editor-header {
+  padding: 25px 28px 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.reminder-editor-page .editor-eyebrow {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--muted-2);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.reminder-editor-page .editor-header h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+
+.reminder-editor-page .editor-header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.reminder-editor-page .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Header buttons ---------- */
+
+.reminder-editor-page .close-btn,
+.reminder-editor-page .delete-btn {
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.reminder-editor-page .close-btn {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--muted);
+  background: var(--surface-2);
+  font-size: 19px;
+  line-height: 1;
+}
+
+.reminder-editor-page .close-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.reminder-editor-page .delete-btn {
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid color-mix(in srgb, var(--danger) 28%, var(--line));
+  border-radius: 5px;
+  color: var(--danger);
+  background: var(--danger-soft);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.reminder-editor-page .delete-btn:hover {
+  border-color: var(--danger);
+  transform: translateY(-1px);
+}
+
+/* ---------- Form body ---------- */
+
+.reminder-editor-page .editor-body {
+  padding: 28px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  column-gap: 16px;
+  row-gap: 0;
+}
+
+.reminder-editor-page .form-group {
+  margin: 0 0 20px;
+  min-width: 0;
+}
+
+.reminder-editor-page .form-group:nth-child(1),
+.reminder-editor-page .form-group:nth-child(2) {
+  grid-column: 1 / -1;
+}
+
+.reminder-editor-page .form-group label {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.reminder-editor-page .form-group input,
+.reminder-editor-page .form-group textarea,
+.reminder-editor-page .form-group select {
+  width: 100%;
+  min-height: 43px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  outline: none;
+  color: var(--text);
+  background: var(--surface-2);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.reminder-editor-page .form-group input::placeholder,
+.reminder-editor-page .form-group textarea::placeholder {
+  color: var(--muted-2);
+  opacity: .9;
+}
+
+.reminder-editor-page .form-group input:hover,
+.reminder-editor-page .form-group textarea:hover,
+.reminder-editor-page .form-group select:hover {
+  border-color: var(--line-strong, var(--line));
+}
+
+.reminder-editor-page .form-group input:focus,
+.reminder-editor-page .form-group textarea:focus,
+.reminder-editor-page .form-group select:focus {
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.reminder-editor-page .form-group textarea {
+  min-height: 145px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.reminder-editor-page .form-group select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+/* Make the email recipient section span the form when shown. */
+.reminder-editor-page .form-group:has(.recipient-row) {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+}
+
+.reminder-editor-page .recipient-row {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  gap: 7px;
+  margin-bottom: 7px;
+}
+
+.reminder-editor-page .recipient-row input {
+  min-width: 0;
+}
+
+.reminder-editor-page .recipient-row > button {
+  width: 40px;
+  min-height: 43px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--muted);
+  background: var(--surface-2);
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    color 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.reminder-editor-page .recipient-row > button:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.reminder-editor-page .form-group .secondary-btn {
+  margin-top: 5px;
+}
+
+/* ---------- Footer ---------- */
+
+.reminder-editor-page .editor-footer {
+  padding: 17px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.reminder-editor-page .secondary-btn,
+.reminder-editor-page .primary-btn {
+  min-height: 38px;
+  padding: 8px 13px;
+  border-radius: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.reminder-editor-page .secondary-btn {
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: var(--surface);
+}
+
+.reminder-editor-page .secondary-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.reminder-editor-page .primary-btn {
+  border: 1px solid var(--accent);
+  color: #fffaf4;
+  background: var(--accent);
+}
+
+.reminder-editor-page .primary-btn:hover {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 700px) {
+  .reminder-editor-page .editor-body {
+    display: block;
+    padding: 20px 18px;
+  }
+
+  .reminder-editor-page .editor-header {
+    padding: 21px 18px 18px;
+  }
+
+  .reminder-editor-page .editor-footer {
+    padding: 14px 18px;
+  }
+
+  .reminder-editor-page .header-actions {
+    gap: 6px;
+  }
+
+  .reminder-editor-page .delete-btn {
+    padding-inline: 9px;
+  }
+}

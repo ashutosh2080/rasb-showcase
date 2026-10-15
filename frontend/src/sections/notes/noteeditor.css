@@ -1,0 +1,496 @@
+/* =========================================================
+   RASB — Note Editor
+   New Note + Edit Note
+   Warm editorial / premium system
+   ========================================================= */
+
+.note-editor-page {
+  min-height: calc(100vh - 80px);
+  padding: 6px 0 34px;
+  color: var(--text);
+}
+
+.note-editor-page .note-editor {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Header ---------- */
+
+.note-editor-page .editor-header {
+  padding: 25px 28px 22px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 28px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.note-editor-page .editor-eyebrow {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--muted-2);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.note-editor-page .editor-header h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -.045em;
+}
+
+.note-editor-page .editor-header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.note-editor-page .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---------- Buttons ---------- */
+
+.note-editor-page .close-btn,
+.note-editor-page .delete-btn {
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.note-editor-page .close-btn {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--muted);
+  background: var(--surface-2);
+  font-size: 19px;
+  line-height: 1;
+}
+
+.note-editor-page .close-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.note-editor-page .delete-btn {
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 1px solid color-mix(in srgb, var(--danger) 28%, var(--line));
+  border-radius: 5px;
+  color: var(--danger);
+  background: var(--danger-soft);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.note-editor-page .delete-btn:hover {
+  border-color: var(--danger);
+  transform: translateY(-1px);
+}
+
+/* ---------- Body ---------- */
+
+.note-editor-page .editor-body {
+  padding: 28px;
+}
+
+.note-editor-page .form-group {
+  margin: 0 0 20px;
+}
+
+.note-editor-page .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.note-editor-page .form-group label {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.note-editor-page .form-group input,
+.note-editor-page .form-group textarea,
+.note-editor-page .form-group select {
+  width: 100%;
+  min-height: 43px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  outline: none;
+  color: var(--text);
+  background: var(--surface-2);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.note-editor-page .form-group input::placeholder,
+.note-editor-page .form-group textarea::placeholder {
+  color: var(--muted-2);
+  opacity: .9;
+}
+
+.note-editor-page .form-group input:hover,
+.note-editor-page .form-group textarea:hover,
+.note-editor-page .form-group select:hover {
+  border-color: var(--line-strong, var(--line));
+}
+
+.note-editor-page .form-group input:focus,
+.note-editor-page .form-group textarea:focus,
+.note-editor-page .form-group select:focus {
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.note-editor-page .form-group textarea {
+  min-height: 155px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.note-editor-page .form-group select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+/* ---------- Encryption ---------- */
+
+.note-editor-page .setting-row {
+  margin: 2px 0 22px;
+  padding: 15px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface-2);
+}
+
+.note-editor-page .setting-title,
+.note-editor-page .setting-description {
+  display: block;
+}
+
+.note-editor-page .setting-title {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.note-editor-page .setting-description {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.note-editor-page .toggle {
+  width: 43px;
+  height: 24px;
+  flex: 0 0 43px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.note-editor-page .toggle span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--muted-2);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.note-editor-page .toggle.active {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.note-editor-page .toggle.active span {
+  transform: translateX(18px);
+  background: #fffaf4;
+}
+
+/* ---------- Media ---------- */
+
+.note-editor-page .media-upload {
+  min-height: 74px;
+  padding: 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border: 1px dashed var(--line-strong, var(--line));
+  border-radius: 5px;
+  background: var(--surface-2);
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.note-editor-page .media-upload:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.note-editor-page .media-upload input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.note-editor-page .upload-icon {
+  width: 31px;
+  height: 31px;
+  flex: 0 0 31px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--surface);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.note-editor-page .media-upload strong,
+.note-editor-page .media-upload span {
+  display: block;
+}
+
+.note-editor-page .media-upload strong {
+  color: var(--text);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.note-editor-page .media-upload span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 9.5px;
+  font-weight: 500;
+}
+
+.note-editor-page .existing-media,
+.note-editor-page .selected-media {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.note-editor-page .existing-media {
+  margin-bottom: 10px;
+}
+
+.note-editor-page .existing-media > p {
+  margin: 0 0 7px;
+  padding: 10px 11px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  color: var(--muted);
+  background: var(--surface-2);
+  font-size: 10.5px;
+  font-weight: 500;
+}
+
+.note-editor-page .media-file {
+  min-height: 42px;
+  padding: 8px 9px;
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr) auto auto auto;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+}
+
+.note-editor-page .media-file > span {
+  padding: 3px 5px;
+  border-radius: 3px;
+  color: var(--muted-2);
+  background: var(--surface-2);
+  font-family: var(--font-mono);
+  font-size: 7.5px;
+  font-weight: 500;
+}
+
+.note-editor-page .media-file strong {
+  overflow: hidden;
+  min-width: 0;
+  color: var(--text);
+  font-size: 10.5px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.note-editor-page .media-file button {
+  min-height: 28px;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--muted);
+  background: var(--surface-2);
+  font-size: 8.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    color 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease;
+}
+
+.note-editor-page .media-file button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.note-editor-page .media-file button:last-child:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+/* ---------- Footer ---------- */
+
+.note-editor-page .editor-footer {
+  padding: 17px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.note-editor-page .secondary-btn,
+.note-editor-page .primary-btn {
+  min-height: 38px;
+  padding: 8px 13px;
+  border-radius: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.note-editor-page .secondary-btn {
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: var(--surface);
+}
+
+.note-editor-page .secondary-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.note-editor-page .primary-btn {
+  border: 1px solid var(--accent);
+  color: #fffaf4;
+  background: var(--accent);
+}
+
+.note-editor-page .primary-btn:hover {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+  transform: translateY(-1px);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 680px) {
+  .note-editor-page {
+    padding-top: 0;
+  }
+
+  .note-editor-page .editor-header {
+    padding: 21px 18px 18px;
+  }
+
+  .note-editor-page .editor-body {
+    padding: 20px 18px;
+  }
+
+  .note-editor-page .editor-footer {
+    padding: 14px 18px;
+  }
+
+  .note-editor-page .media-file {
+    grid-template-columns: auto minmax(0,1fr);
+  }
+
+  .note-editor-page .media-file button {
+    grid-column: span 1;
+  }
+
+  .note-editor-page .header-actions {
+    gap: 6px;
+  }
+
+  .note-editor-page .delete-btn {
+    padding-inline: 9px;
+  }
+}
